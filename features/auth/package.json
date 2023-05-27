@@ -1,0 +1,11 @@
+{
+  "name": "@features/auth",
+  "version": "0.0.1",
+  "main": "./index.ts",
+  "exports": "./index.ts",
+  "private": "true",
+  "dependencies": {
+    "@features/shared": "*",
+    "@features/toast": "*"
+  }
+}

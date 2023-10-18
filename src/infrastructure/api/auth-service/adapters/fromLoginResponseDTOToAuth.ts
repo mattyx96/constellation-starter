@@ -1,5 +1,5 @@
-import { LoginResponseDto } from '@features/auth/api/types/Responses'
-import { Auth } from '../../../../../core'
+import { LoginResponseDto } from '@/infrastructure/api/auth-service/dtos/Responses'
+import { Auth } from 'core/auth'
 
 export const fromLoginResponseDTOToAuth = (data: LoginResponseDto): Auth => {
   return {

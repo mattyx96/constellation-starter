@@ -1,0 +1,9 @@
+{
+  "name": "core",
+  "version": "0.0.1",
+  "main": "./index.ts",
+  "exports": "./index.ts",
+  "private": "true",
+  "dependencies": {
+  }
+}

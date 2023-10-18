@@ -1,46 +1,45 @@
-import React from 'react';
-import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { ProtectedRoute } from '@/infrastructure/router/ProtectedRoute';
-import App from '@/App';
-import { Dashboard } from '@/pages/dashboard';
-import { IRouterPort } from '@features/shared/ports/IRouterPort';
-import { PageLayout } from 'ui';
+import React from 'react'
+import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
+import { Dashboard } from '@/pages/dashboard'
+import { LoginPage } from '@/pages/login'
+import { PageLayout } from 'nebula-ds'
+import { IRouterPort } from 'core/shared'
 
 export const router = createBrowserRouter([
   {
     path: '/login',
-    element: <App />,
+    element: <LoginPage />
   },
   {
     path: '/',
     element: (
       // <ProtectedRoute>
-        <PageLayout>
-          <Outlet />
-        </PageLayout>
+      <PageLayout>
+        <Outlet />
+      </PageLayout>
       // </ProtectedRoute>
     ),
     children: [
       {
         path: '/',
-        element: <Navigate to='/dashboard' replace />,
+        element: <Navigate to="/dashboard" replace />
       },
       {
         path: '/dashboard',
-        element: <Dashboard />,
-      },
-    ],
-  },
-]);
+        element: <Dashboard />
+      }
+    ]
+  }
+])
 
 class RouterAdapter implements IRouterPort {
   navigate = async (path: string, replace?: boolean) => {
-    await router.navigate(path, { replace: Boolean(replace) });
-  };
+    await router.navigate(path, { replace: Boolean(replace) })
+  }
   reload = () => {
     //todo fix
-    window.location.reload();
-  };
+    window.location.reload()
+  }
 }
 
-export const useRouter = () => new RouterAdapter();
+export const useRouter = () => new RouterAdapter()

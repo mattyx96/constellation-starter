@@ -14,9 +14,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@features/auth": "*",
-    "@features/shared": "*",
-    "@features/toast": "*",
+    "core": "*",
     "axios": "^1.4.0",
     "eslint-plugin-react": "^7.33.2",
     "i18next": "^22.5.0",
@@ -24,7 +22,7 @@
     "react-dom": "^18.2.0",
     "react-i18next": "^12.3.1",
     "react-router-dom": "^6.15.0",
-    "ui": "*",
+    "nebula-ds": "*",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
@@ -60,7 +58,7 @@
     "vitest": "^0.34.2"
   },
   "workspaces": [
-    "features/*",
-    "ui/*"
+    "core",
+    "nebula-ds"
   ]
 }

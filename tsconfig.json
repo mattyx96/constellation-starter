@@ -25,7 +25,8 @@
     }
   },
   "include": [
-    "src", "features"
+    "src",
+    "core"
   ],
   "references": [
     {

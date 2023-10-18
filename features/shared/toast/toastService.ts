@@ -1,5 +1,5 @@
 import { toastStore, ToastStore } from './store';
-import { Singleton } from '@features/shared';
+import { Singleton } from '../index';
 import { Toast } from './types/Toast';
 
 @Singleton

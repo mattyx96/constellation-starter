@@ -1,11 +1,11 @@
-import {Singleton} from "../shared";
-import {Auth, IRepositoryPort, User} from "./core";
-import {authStore} from "./authStore";
+import { Singleton } from '../shared';
+import { Auth, IRepositoryPort, User } from './core';
+import { authStore } from './authStore';
 
 @Singleton
 class AuthRepository implements IRepositoryPort {
   saveAuth(auth: Auth): void {
-    return authStore.setState({token: auth.token, user: auth.user})
+    return authStore.setState({ token: auth.token, user: auth.user });
   }
 
   getUser(): User | undefined {
@@ -17,12 +17,12 @@ class AuthRepository implements IRepositoryPort {
   }
 
   setLoading(loading: boolean): void {
-    return authStore.setState({loading});
+    return authStore.setState({ loading });
   }
 
   setToken(token: string): void {
-    return authStore.setState({token})
+    return authStore.setState({ token });
   }
 }
 
-export const authRepository = new AuthRepository()
+export const authRepository = new AuthRepository();

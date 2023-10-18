@@ -1,5 +1,5 @@
 import { useReactFeatureStore } from '@features/shared';
-import { toastStore } from '@features/toast';
+import { toastStore } from '../../../features/shared/toast';
 
 
 export const ToasterService = () => {

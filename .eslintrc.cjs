@@ -1,24 +1,41 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
+  'env': {
+    'browser': true,
+    'es2020': true,
+    'jest': true,
+    'node': true,
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
-  "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+  'settings': {
+    'react': {
+      'version': 'detect',
+    },
   },
-  "plugins": ["react", 'react-refresh'],
-  "rules": {
-    'react-refresh/only-export-components': 'warn',
-    "indent": ["error", 2],
-    "linebreak-style": ["error", "unix"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "always"],
-    "react/prop-types": "off"
-  }
-}
+  'extends': [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+    'plugin:tailwindcss/recommended',
+  ],
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaFeatures': {
+      'jsx': true,
+    },
+    'ecmaVersion': 11,
+    'sourceType': 'module',
+  },
+  'plugins': ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss'],
+  'rules': {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    'tailwindcss/classnames-order': 'warn',
+    'tailwindcss/no-custom-classname': 'warn',
+    'tailwindcss/no-contradicting-classname': 'error',
+  },
+};

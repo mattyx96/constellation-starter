@@ -2,7 +2,7 @@
 export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    './ui/**/*.{js,ts,jsx,tsx}',
+    './nebula-ds/**/*.{js,ts,jsx,tsx}',
     './index.html'
   ],
   theme: {

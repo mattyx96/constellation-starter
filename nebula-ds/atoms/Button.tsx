@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react'
 interface Props {
   variant: 'cta' | 'cta2' | 'outlined'
   className?: string
+  onClick?: () => void
 }
 
 export const Button = (props: PropsWithChildren<Props>) => {
@@ -21,6 +22,7 @@ export const Button = (props: PropsWithChildren<Props>) => {
         ${defaultClasses} 
         ${derivedClasses[props.variant]}
     `}
+      onClick={props.onClick}
     >
       {props.children}
     </button>

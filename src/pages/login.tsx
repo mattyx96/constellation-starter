@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Auth } from 'core'
 import { Spinner } from 'nebula-ds'
 import grid from '@/assets/1548260.svg'
 import logo from '@/assets/fake_logo.png'
@@ -8,17 +7,24 @@ import { useStore } from 'zustand'
 import { authStore } from '@/infrastructure/store/authStore'
 import { toastService } from '@/infrastructure/toast/toastService'
 import { authApiService } from '@/infrastructure/api/auth-service/authApiService'
-import { useRouter } from '@/infrastructure/router/router'
+import { Router } from '@/infrastructure/router/router'
+import { AuthDispatcher, LoginCommand } from 'core/auth'
 
 function LoginPage() {
-  const [loginForm, setLoginForm] = useState<Auth.LoginCommand>({
+  const [loginForm, setLoginForm] = useState<LoginCommand>({
     email: 'kminchelle',
     password: '0lelplR',
     rememberMe: false
   })
 
+  const authDispatcher = new AuthDispatcher({
+    authStore: authStore.getState(),
+    router: Router,
+    authApiService,
+    toastService
+  })
+
   const theme = useTailwindTheme()
-  const router = useRouter()
   const auth = useStore(authStore)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,13 +37,7 @@ function LoginPage() {
     e.preventDefault()
     console.log(e)
     try {
-      await Auth.useCases.loginUseCase({
-        data: loginForm,
-        authStore: authStore.getState(),
-        router,
-        authApiService,
-        toastService
-      })
+      await authDispatcher.login(loginForm)
     } catch (e) {
       alert(e)
     }
@@ -80,7 +80,7 @@ function LoginPage() {
             <input
               type="checkbox"
               name="rememberMe"
-              className="disabled:border-steel-400 disabled:bg-steel-400 peer relative h-4 w-4 shrink-0 appearance-none rounded-bl bg-white checked:border-0 checked:bg-black"
+              className="peer relative h-4 w-4 shrink-0 appearance-none rounded-bl bg-white checked:border-0 checked:bg-black"
               checked={loginForm.rememberMe}
               onChange={(e) =>
                 setLoginForm({ ...loginForm, rememberMe: e.target.checked })

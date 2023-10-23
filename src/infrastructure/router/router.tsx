@@ -42,4 +42,5 @@ class RouterAdapter implements IRouterPort {
   }
 }
 
+export const Router = new RouterAdapter()
 export const useRouter = () => new RouterAdapter()

@@ -2,11 +2,11 @@ import axios, { AxiosResponse } from 'axios'
 import { LoginResponseDto } from '@/infrastructure/api/auth-service/dtos/Responses'
 import { LoginRequestDto } from '@/infrastructure/api/auth-service/dtos/Requests'
 import { fromLoginResponseDTOToAuth } from '@/infrastructure/api/auth-service/adapters/fromLoginResponseDTOToAuth'
-import { Singleton } from 'core/shared'
-import { Auth, IAuthApiServicePort, LoginCommand } from 'core/auth'
+import { Singleton } from 'core/misc'
+import { Auth, IAuthApiServicePort, LoginCommand } from 'core/features/auth'
 
 @Singleton
-class AuthApiService implements IAuthApiServicePort {
+export class AuthApiService implements IAuthApiServicePort {
   async login(command: LoginCommand): Promise<Auth> {
     try {
       const response = await axios.post<
@@ -31,5 +31,3 @@ class AuthApiService implements IAuthApiServicePort {
     return Promise.resolve(undefined)
   }
 }
-
-export const authApiService = new AuthApiService()

@@ -1,5 +1,5 @@
 import { createStore } from 'zustand/vanilla'
-import { Auth, IAuthStorePort } from 'core/auth'
+import { Auth, IAuthStorePort } from '../../../core/features/auth'
 
 export const authStore = createStore<IAuthStorePort>((setState) => ({
   token: '',

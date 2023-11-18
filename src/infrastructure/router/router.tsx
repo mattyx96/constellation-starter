@@ -3,7 +3,7 @@ import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { Dashboard } from '@/pages/dashboard'
 import { LoginPage } from '@/pages/login'
 import { PageLayout } from 'nebula-ds'
-import { IRouterPort } from 'core/shared'
+import { IRouterPort } from '../../../core/misc'
 
 export const router = createBrowserRouter([
   {

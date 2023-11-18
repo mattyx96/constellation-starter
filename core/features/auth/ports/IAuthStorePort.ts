@@ -1,5 +1,5 @@
-import { User } from '../../shared'
 import { Auth } from '../entities/Auth'
+import { User } from '../../../entities/User'
 
 export interface IAuthStorePort {
   token: string

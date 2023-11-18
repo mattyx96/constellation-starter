@@ -1,4 +1,4 @@
-import { User } from '../../shared'
+import { User } from '../../../entities/User'
 
 export interface Auth {
   token: string

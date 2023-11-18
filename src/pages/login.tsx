@@ -5,10 +5,7 @@ import logo from '@/assets/fake_logo.png'
 import { useTailwindTheme } from '@/hooks/useTailwindTheme'
 import { useStore } from 'zustand'
 import { authStore } from '@/infrastructure/store/authStore'
-import { toastService } from '@/infrastructure/toast/toastService'
-import { authApiService } from '@/infrastructure/api/auth-service/authApiService'
-import { Router } from '@/infrastructure/router/router'
-import { AuthDispatcher, LoginCommand } from 'core/auth'
+import { AuthDispatcher, LoginCommand } from 'core/features/auth'
 
 function LoginPage() {
   const [loginForm, setLoginForm] = useState<LoginCommand>({
@@ -17,12 +14,7 @@ function LoginPage() {
     rememberMe: false
   })
 
-  const authDispatcher = new AuthDispatcher({
-    authStore: authStore.getState(),
-    router: Router,
-    authApiService,
-    toastService
-  })
+  const authDispatcher = new AuthDispatcher()
 
   const theme = useTailwindTheme()
   const auth = useStore(authStore)

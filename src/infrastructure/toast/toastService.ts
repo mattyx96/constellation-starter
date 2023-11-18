@@ -1,10 +1,10 @@
 import { toastStore } from '../store/store'
-import { Singleton } from 'core/shared'
-import { Toast } from 'core/shared/entities/Toast'
-import { IToastServicePort } from 'core/shared/ports/IToastServicePort'
+import { Singleton } from '../../../core/misc'
+import { Toast } from 'core/entities/Toast'
+import { IToastServicePort } from 'core/ports/IToastServicePort'
 
 @Singleton
-class ToastServiceAdapter implements IToastServicePort {
+export class ToastService implements IToastServicePort {
   constructor() {
     setInterval(() => {
       // pop
@@ -22,5 +22,3 @@ class ToastServiceAdapter implements IToastServicePort {
     }))
   }
 }
-
-export const toastService = new ToastServiceAdapter()

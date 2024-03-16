@@ -1,5 +1,5 @@
-import { toastStore } from '../store/store'
-import { Singleton } from '../../../core/misc'
+import { toastStore } from './toastStore'
+import { Singleton } from 'core/misc'
 import { Toast } from 'core/entities/Toast'
 import { IToastServicePort } from 'core/ports/IToastServicePort'
 

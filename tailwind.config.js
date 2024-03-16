@@ -1,4 +1,7 @@
+import scrollbarHide from 'tailwind-scrollbar-hide'
+
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
@@ -18,7 +21,11 @@ export default {
         cta: '#D75E3D',
         'cta-2': '#E4AF58',
         'cta-selected': '#CE443A',
-        disabled: '#808080'
+        disabled: '#808080',
+        error: '#FF0000', // Error color
+        success: '#4CAF50', // Success color
+        warning: '#FFC107', // Warning color
+        info: '#2196F3' // Info color
       }
     },
     fontFamily: {
@@ -26,5 +33,5 @@ export default {
       montserrat: ['Montserrat', 'sans-serif']
     }
   },
-  plugins: []
+  plugins: [scrollbarHide]
 }

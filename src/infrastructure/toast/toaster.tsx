@@ -1,5 +1,5 @@
 import { useStore } from 'zustand'
-import { toastStore } from '@/infrastructure/store/store'
+import { toastStore } from '@/infrastructure/toast/toastStore'
 
 export const Toaster = () => {
   const { toasters } = useStore(toastStore)
@@ -9,9 +9,9 @@ export const Toaster = () => {
         <div
           key={index}
           className={`max-w-sm rounded-md text-sm text-black shadow-lg
-          ${toaster.type === 'SUCCESS' && 'bg-green-200'}
-          ${toaster.type === 'ERROR' && 'bg-red-400 text-white'}
-          ${toaster.type === 'INFO' && 'bg-blue-400 text-white'}
+          ${toaster.type === 'SUCCESS' && 'bg-success'}
+          ${toaster.type === 'ERROR' && 'bg-error text-white'}
+          ${toaster.type === 'INFO' && 'bg-info text-white'}
         `}
         >
           <div className="flex p-4">{toaster.message}</div>

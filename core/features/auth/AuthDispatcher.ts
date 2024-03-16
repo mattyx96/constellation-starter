@@ -4,8 +4,6 @@ import { isLoggedUseCase } from './useCases/isLoggedUseCase'
 
 @Singleton
 export class AuthDispatcher {
-  constructor() {}
-
   login = async (command: LoginCommand) => {
     await loginUseCase({ data: command })
   }

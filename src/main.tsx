@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { Toaster } from '@/components/organisms/toaster'
+import { Toaster } from '@/infrastructure/toast/toaster'
 import { router, useRouter } from '@/infrastructure/router/router'
 import { RouterProvider } from 'react-router-dom'
 import { initCore } from 'core/config'

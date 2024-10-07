@@ -2,17 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  place-items: center;
-  min-width: 100vw;
-  min-height: 100vh;
-  @apply bg-white;
-  @apply font-montserrat;
+html {
+  @apply bg-background-accent-500;
 }
 
-input {
-  @apply bg-white border border-black accent-cta-selected focus:outline-none focus:ring-offset-0 focus:ring-2 focus:ring-cta-2;
+body #root {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 100vw;
+  min-height: 100dvh;
+  @apply bg-background-primary;
 }
+
+.fade-element {
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease; /* Controls the fading animation */
+}
+
+/*input {
+  @apply bg-transparent py-1 px-2 border border-background-accent-500 border-border-0,5 rounded-e-input-border-radius-md-lg-default accent-input-color-focused focus:outline-none focus:ring-offset-0 focus:ring-2 focus:ring-offset-input-background-color-focused;
+}*/

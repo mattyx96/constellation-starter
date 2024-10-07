@@ -1,4 +1,4 @@
-import { DependencyContainer } from '../../../config/DependencyContainer'
+import { DependencyContainer } from '../../../framework/config/DependencyContainer'
 
 const container = new DependencyContainer()
 

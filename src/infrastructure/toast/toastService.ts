@@ -12,7 +12,7 @@ export class ToastService implements IToastServicePort {
         ...state,
         toasters: state.toasters?.slice(1) ?? []
       }))
-    }, 3000)
+    }, 10000)
   }
 
   createSuccessToaster(message: string, type?: Toast['type']) {

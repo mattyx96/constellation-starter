@@ -2,8 +2,8 @@ import React from 'react'
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { Dashboard } from '@/pages/dashboard'
 import { LoginPage } from '@/pages/login'
-import { PageLayout } from 'nebula-ds'
 import { IRouterPort } from 'core/ports/IRouterPort'
+import { PageLayout } from '@/components/layouts/PageLayout'
 
 export const router = createBrowserRouter([
   {

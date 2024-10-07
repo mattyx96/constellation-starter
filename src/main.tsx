@@ -4,10 +4,11 @@ import './index.css'
 import { Toaster } from '@/infrastructure/toast/toaster'
 import { router, useRouter } from '@/infrastructure/router/router'
 import { RouterProvider } from 'react-router-dom'
-import { initCore } from 'core/config'
+import { initCore } from 'core/framework'
 import { AuthApiService } from '@/infrastructure/api/auth-service/authApiService'
 import { authStore } from '@/infrastructure/store/authStore'
 import { ToastService } from '@/infrastructure/toast/toastService'
+import 'nebula-ds-react-library/style'
 
 initCore({
   dependencies: {

@@ -5,4 +5,4 @@ export * as Auth from './features/auth/index'
 export * as Misc from './misc/index'
 
 /* config */
-export * as Config from './config/index'
+export * as Config from './framework/config/index'

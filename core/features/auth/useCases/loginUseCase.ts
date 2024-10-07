@@ -1,5 +1,6 @@
-import { DependencyContainer } from '../../../config/DependencyContainer'
+import { DependencyContainer } from '../../../framework/config/DependencyContainer'
 import { z } from 'zod'
+import { UseCaseCommand } from '../../../framework/entities'
 
 export const loginCommandSchema = z.object({
   email: z.string().min(1),
@@ -9,13 +10,13 @@ export const loginCommandSchema = z.object({
 
 export type LoginCommand = z.infer<typeof loginCommandSchema>
 
-export const loginUseCase = async (command: { data: LoginCommand }) => {
+const container = new DependencyContainer()
+
+export const loginUseCase = async (command: UseCaseCommand<LoginCommand>) => {
   console.log('resolving loginUseCase Dependencies')
-  const container = new DependencyContainer()
-  const authStore = container.resolve('authStore')
-  const router = container.resolve('router')
-  const toastService = container.resolve('toastService')
-  const authApiService = container.resolve('authApiService')
+
+  const { authStore, router, toastService, authApiService } =
+    container.mergeDependencies(command.services)
 
   try {
     console.log(command)

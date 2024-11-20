@@ -1,33 +1,33 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2020': true,
-    'jest': true,
-    'node': true,
+  env: {
+    browser: true,
+    es2020: true,
+    jest: true,
+    node: true
   },
-  'settings': {
-    'react': {
-      'version': 'detect',
-    },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   },
-  'extends': [
+  extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
-    'plugin:tailwindcss/recommended',
+    'plugin:tailwindcss/recommended'
   ],
-  'parser': '@typescript-eslint/parser',
-  'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
     },
-    'ecmaVersion': 11,
-    'sourceType': 'module',
+    ecmaVersion: 11,
+    sourceType: 'module'
   },
-  'plugins': ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss'],
-  'rules': {
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'tailwindcss'],
+  rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/prop-types': 'off',
@@ -37,5 +37,23 @@ module.exports = {
     'tailwindcss/classnames-order': 'warn',
     'tailwindcss/no-custom-classname': 'warn',
     'tailwindcss/no-contradicting-classname': 'error',
-  },
-};
+
+    // Restrict imports to 'core' from its index
+    'no-restricted-imports': [
+      'error',
+      {
+        paths: [
+          {
+            name: './core',
+            message: "Use 'core' alias instead of direct paths."
+          },
+          {
+            name: './core',
+            message: "Use 'core' alias instead of direct paths."
+          }
+        ],
+        patterns: ['core/*']
+      }
+    ]
+  }
+}

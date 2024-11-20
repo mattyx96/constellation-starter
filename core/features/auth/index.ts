@@ -5,8 +5,5 @@ export * from './entities/Auth'
 export * from './ports/IAuthApiServicePort'
 export * from './ports/IAuthStorePort'
 
-/* dispatcher */
-export * from './AuthDispatcher'
-
-/* commands */
-export type { LoginCommand } from './useCases/loginUseCase'
+/* main class */
+export * from './authFeature'

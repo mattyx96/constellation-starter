@@ -1,25 +1,22 @@
 import React from 'react'
 import grid from '@/assets/1548260.svg'
 import logo from '@/assets/cosmos-2.svg'
-import { AuthDispatcher, LoginCommand } from 'core/features/auth'
-import { loginCommandSchema } from 'core/features/auth/useCases/loginUseCase'
 import { FormTextInput } from '@/components/molecules/FormTextInput'
 import { useForm } from '@/infrastructure/form/useForm'
-import { formStore as formStoreAdapter } from '@/infrastructure/store/formStore'
+import { formStore as formStoreAdapter } from '@/features/auth/infrastructure/store/formStore'
 import { Button, Paper, Text } from 'nebula-ds-react-library'
 import { useZStore } from '@/hooks/useZStore'
+import { auth } from 'core'
 
 function LoginPage() {
-  const authDispatcher = new AuthDispatcher()
+  const authFeature = new auth.AuthFeature()
   const formStore = useZStore(formStoreAdapter)
 
-  const form = useForm<LoginCommand>({
+  const form = useForm<auth.LoginCommand>({
     state: formStore,
     setState: (data) => formStore.setZState(data),
-    onSubmit: async (data) => {
-      await authDispatcher.login(data)
-    },
-    schema: loginCommandSchema
+    onSubmit: async (data) => await authFeature.login(data),
+    schema: auth.loginCommandSchema
   })
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {

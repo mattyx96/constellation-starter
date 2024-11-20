@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom'
 import { Dashboard } from '@/pages/dashboard'
-import { LoginPage } from '@/pages/login'
+import { LoginPage } from '@/features/auth/pages/login'
 import { IRouterPort } from 'core/ports/IRouterPort'
 import { PageLayout } from '@/components/layouts/PageLayout'
 

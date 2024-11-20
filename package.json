@@ -14,10 +14,10 @@
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
   "dependencies": {
-    "core": "*",
     "@tanstack/react-form": "^0.13.3",
     "@tanstack/zod-form-adapter": "^0.13.3",
-    "axios": "^1.6.6",
+    "axios": "1.7.4",
+    "core": "*",
     "eslint-plugin-react": "^7.33.2",
     "i18next": "^23.7.19",
     "immer": "^10.0.3",
@@ -31,10 +31,8 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.8",
-    "@babel/preset-react": "^7.23.3",
-    "@babel/preset-typescript": "^7.23.3",
+    "@swc/core": "^1.9.2",
+    "@swc/helpers": "^0.5.15",
     "@testing-library/react": "^14.1.2",
     "@types/node": "^20.11.6",
     "@types/react": "^18.2.48",
@@ -42,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react-swc": "^3.7.1",
     "@vitest/ui": "^1.2.1",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.56.0",
@@ -51,13 +50,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-tailwindcss": "^3.14.0",
-    "happy-dom": "^13.3.1",
+    "happy-dom": "15.10.2",
     "postcss": "^8.4.33",
     "prettier": "^3.2.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "5.2.6",
-    "vite-tsconfig-paths": "^4.3.1",
+    "vite": "5.4.6",
     "vitest": "^1.2.1"
   },
   "workspaces": [

@@ -10,6 +10,7 @@ interface Props {
 export const PageLayout = (props: Props) => {
   const { isMobile } = useBreakpoint()
   const router = useRouter()
+
   return (
     <>
       <img className={'fixed inset-x-0 bottom-0 z-0'} src={grid} alt="bg" />

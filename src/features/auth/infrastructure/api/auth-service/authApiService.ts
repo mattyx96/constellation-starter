@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
-import { LoginResponseDto } from '@/infrastructure/api/auth-service/dtos/Responses'
-import { LoginRequestDto } from '@/infrastructure/api/auth-service/dtos/Requests'
-import { fromLoginResponseDTOToAuth } from '@/infrastructure/api/auth-service/adapters/fromLoginResponseDTOToAuth'
+import { LoginResponseDto } from '@/features/auth/infrastructure/api/auth-service/dtos/Responses'
+import { LoginRequestDto } from '@/features/auth/infrastructure/api/auth-service/dtos/Requests'
+import { fromLoginResponseDTOToAuth } from '@/features/auth/infrastructure/api/auth-service/adapters/fromLoginResponseDTOToAuth'
 import { Singleton } from 'core/misc'
 import { Auth, IAuthApiServicePort, LoginCommand } from 'core/features/auth'
 

@@ -1,8 +1,8 @@
 /* features */
-export * as Auth from './features/auth/index'
+export * as auth from './features/auth/index'
 
 /* misc */
-export * as Misc from './misc/index'
+export * as misc from './misc/index'
 
 /* config */
-export * as Config from './framework/config/index'
+export * as config from './framework/config/index'

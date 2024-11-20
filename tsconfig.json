@@ -21,7 +21,12 @@
     "jsx": "react-jsx",
     "experimentalDecorators": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "core": [
+        "./core"
+      ]
     }
   },
   "include": [

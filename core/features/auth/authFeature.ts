@@ -1,4 +1,3 @@
-import { isLoggedUseCase } from '@core/features/auth/useCases/isLoggedUseCase'
 import { Singleton } from '@core/misc'
 import { sleep } from '@core/misc/utils/typescript'
 import { FeatureClass } from '@core/framework'
@@ -19,7 +18,9 @@ export class AuthFeature extends FeatureClass {
   }
 
   isLogged = async () => {
-    return isLoggedUseCase()
+    const token = this.services.authStore.token
+    const user = this.services.authStore.user
+    return Boolean(token !== '' && user)
   }
 }
 

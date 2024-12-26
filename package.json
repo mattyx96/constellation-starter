@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --config eslint.config.mjs",
-    "lint:fix": "eslint . --config eslint.config.mjs --fix",
+    "dev": "pnpm run frontend dev && pnpm run core dev",
+    "build": "pnpm run core build && pnpm run frontend build",
+    "lint": "pnpm -r lint",
+    "lint-fix": "pnpm -r lint-fix",
+    "check:all": "pnpm run typecheck && pnpm run lint && pnpm run format:check",
+    "check-fix:all": "pnpm run typecheck && pnpm run lint-fix && pnpm run format",
+    "typecheck": "pnpm -r typecheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
     "frontend": "pnpm --filter frontend",
+    "eslint-prettier-config": "pnpm --filter eslint-prettier-config",
     "core": "pnpm --filter core",
-    "dev": "pnpm run frontend dev && pnpm run core dev",
     "fresh": "pnpm clean && pnpm i",
     "fix": "pnpm lint:fix . && pnpm format"
   },
@@ -41,9 +46,8 @@
     "typescript-eslint": "^8.18.1"
   },
   "lint-staged": {
-    "**/*.{js,ts,tsx}": [
-      "eslint --fix"
-    ],
-    "**/*": "prettier --write --ignore-unknown"
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm check:all"
+    ]
   }
 }

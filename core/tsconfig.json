@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "useDefineForClassFields": true,
+    "allowJs": false,
+    "emitDeclarationOnly": true,
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "composite": true,
+    "noEmit": false,
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src"]
+}

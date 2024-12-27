@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "pnpm run frontend dev && pnpm run core dev",
+    "dev": "pnpm run core dev & pnpm run frontend dev",
     "build": "pnpm run core build && pnpm run frontend build",
     "lint": "pnpm -r lint",
     "lint-fix": "pnpm -r lint-fix",

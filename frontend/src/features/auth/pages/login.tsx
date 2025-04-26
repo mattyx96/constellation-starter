@@ -5,17 +5,17 @@ import { FormTextInput } from '@/components/molecules/FormTextInput';
 import { useForm } from '@/infrastructure/form/useForm';
 import { formStore as formStoreAdapter } from '@/features/auth/infrastructure/store/formStore';
 import { Button, Paper, Text } from 'nebula-ds-react-library';
-import { useZStore } from '@/hooks/useZStore';
 import { auth } from 'core';
+import { useStore } from 'zustand';
 
 function LoginPage() {
   const authFeature = new auth.AuthFeature();
 
-  const formStore = useZStore(formStoreAdapter);
+  const formStore = useStore(formStoreAdapter);
 
   const form = useForm<auth.LoginCommand>({
     state: formStore,
-    setState: (data) => formStore.setZState(data),
+    setState: (data) => formStoreAdapter.setState(data),
     onSubmit: async (data) => await authFeature.login(data),
     schema: auth.loginCommandSchema,
   });

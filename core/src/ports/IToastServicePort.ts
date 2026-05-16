@@ -4,5 +4,5 @@ export type Toast = {
 };
 
 export interface IToastServicePort {
-  createSuccessToaster: (message: string, type?: Toast["type"]) => void;
+  createToast: (message: string, type?: Toast["type"]) => void;
 }

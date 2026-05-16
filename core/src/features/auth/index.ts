@@ -7,5 +7,3 @@ export * from "./ports/IAuthStorePort";
 
 /* main class */
 export * from "./authFeature";
-
-console.log("ciao");

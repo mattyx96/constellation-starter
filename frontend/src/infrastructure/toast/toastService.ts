@@ -13,7 +13,7 @@ class ToastService implements toastService.IToastServicePort {
     }, 10000);
   }
 
-  createSuccessToaster(message: string, type?: toastService.Toast['type']) {
+  createToast(message: string, type?: toastService.Toast['type']) {
     toastStore.setState((state) => ({
       ...state,
       toasters: [...state.toasters, { type: type || 'INFO', message }],

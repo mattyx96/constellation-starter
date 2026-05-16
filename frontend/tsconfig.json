@@ -16,8 +16,9 @@
     "composite": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*", "../core/src/*"],
+      "core": ["../core/src/index.ts"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "../core/src/**/*"]
 }

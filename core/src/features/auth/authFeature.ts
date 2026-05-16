@@ -1,7 +1,6 @@
 import { z } from "zod";
-import { Singleton } from "@/misc";
+import { Singleton, sleep } from "@/misc";
 import { FeatureClass } from "@/framework";
-import { sleep } from "@/misc";
 
 @Singleton
 export class AuthFeature extends FeatureClass {
@@ -11,11 +10,11 @@ export class AuthFeature extends FeatureClass {
       const auth = await this.services.authApiService.login(command);
       await sleep(1000);
       this.services.authStore.saveAuth(auth);
-      this.services.toastService.createSuccessToaster("login-successful");
+      this.services.toastService.createToast("login-successful", "SUCCESS");
       await this.services.router.navigate("/dashboard", true);
     } catch (e) {
       console.log(e);
-      this.services.toastService.createSuccessToaster("Error: " + e);
+      this.services.toastService.createToast("Error: " + e, "ERROR");
     }
   };
 

@@ -9,5 +9,4 @@ export const initCore = (command: Command) => {
   /*init dependency container*/
   const container = new DependencyContainer();
   container.setDependencies(command.dependencies);
-  container.resolve("toastService").createSuccessToaster("test");
 };

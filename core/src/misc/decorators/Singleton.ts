@@ -1,16 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+const instances = new WeakMap<new (...args: any[]) => any, any>();
+
 export function Singleton<T extends new (...args: any[]) => any>(ctr: T): T {
-  let instance: T;
-
-  return class {
-    constructor(...args: any[]) {
-      if (instance) {
-        /*console.error('You cannot instantiate a singleton twice!')*/
-        return instance;
+  return new Proxy(ctr, {
+    construct(target, args) {
+      if (!instances.has(target)) {
+        instances.set(target, Reflect.construct(target, args));
       }
-
-      instance = new ctr(...args);
-      return instance;
-    }
-  } as T;
+      return instances.get(target);
+    },
+  }) as T;
 }

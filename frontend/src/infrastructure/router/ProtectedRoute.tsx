@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  if (!authStore.getState().token) {
+  if (!authStore.getState().getToken()) {
     return <Navigate to="/login" replace />;
   }
 

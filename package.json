@@ -18,8 +18,9 @@
     "frontend": "pnpm --filter frontend",
     "eslint-prettier-config": "pnpm --filter eslint-prettier-config",
     "core": "pnpm --filter core",
+    "clean": "pnpm -r exec rm -rf dist tsconfig.tsbuildinfo",
     "fresh": "pnpm clean && pnpm i",
-    "fix": "pnpm lint:fix . && pnpm format"
+    "fix": "pnpm lint-fix && pnpm format"
   },
   "keywords": [],
   "author": "",

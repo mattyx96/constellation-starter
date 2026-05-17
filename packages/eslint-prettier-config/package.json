@@ -11,12 +11,10 @@
   "author": "Your Name",
   "license": "MIT",
   "peerDependencies": {
-    "eslint": "^7.32.0",
-    "prettier": "^2.3.2"
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^8.18.2",
-    "@typescript-eslint/parser": "^8.18.2",
     "eslint": "^9.17.0"
   },
   "dependencies": {

@@ -1,14 +1,21 @@
 import { createStore } from 'zustand/vanilla';
 import { auth } from 'core';
 
-export const authStore = createStore<auth.IAuthStorePort>((setState) => ({
+type AuthStoreState = auth.IAuthStorePort & {
+  token: string;
+  user?: auth.Auth['user'];
+};
+
+export const authStore = createStore<AuthStoreState>((set, get) => ({
   token: '',
   user: undefined,
-  saveAuth: (auth: auth.Auth) => {
-    setState({ token: auth.token, user: auth.user });
+  getToken: () => get().token,
+  getUser: () => get().user,
+  saveAuth: (authData: auth.Auth) => {
+    set({ token: authData.token, user: authData.user });
   },
 
   setToken: (token: string) => {
-    setState({ token });
+    set({ token });
   },
 }));

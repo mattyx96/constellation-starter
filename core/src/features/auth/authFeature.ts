@@ -20,8 +20,8 @@ export class AuthFeature extends FeatureClass {
   };
 
   isLogged = async () => {
-    const token = this.services.authStore.token;
-    const user = this.services.authStore.user;
+    const token = this.services.authStore.getToken();
+    const user = this.services.authStore.getUser();
     return Boolean(token !== "" && user);
   };
 }

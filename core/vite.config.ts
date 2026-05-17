@@ -7,11 +7,11 @@ export default defineConfig(() => {
 
   return {
     build: {
+      minify: isProd,
       lib: {
         entry: resolve(__dirname, "src/index.ts"),
         formats: ["cjs", "es"],
         fileName: (format) => (format === "cjs" ? "index.cjs" : "index.mjs"),
-        minify: isProd,
       },
       sourcemap: !isProd,
       rollupOptions: {
